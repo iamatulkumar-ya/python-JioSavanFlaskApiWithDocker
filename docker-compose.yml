@@ -4,14 +4,14 @@ services:
 
     # Mentioning the . here, such that compose file will use the image which we mentioned in the docker file 
     build: .
-    image: iamatulkumar/python-flaskapi:alpine3.18v1
+    image: iamatulkumar/python-flaskapi:alpine3.18v1.1
     container_name: python-flaskapi-container
     ports:
       - "8000:5000"
 
     # We are mounting the volume which we are using for our application
     volumes:
-      - /D/CodeDesk/gh-iamatulkumar-ya/python-FlaskApiWithDocker/:/var/app/
+      - /D/CodeDesk/gh-iamatulkumar-ya/python-JioSavanFlaskApiWithDocker/:/var/app/
 
     # Let's define the environment variale which will be used in our application
     environment:
