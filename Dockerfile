@@ -7,6 +7,7 @@ WORKDIR /var/app
 # Setting env variable which will be used by flask 
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
+ENV JIO_SAVAN_SEARCH_SONG_URL=https://saavn.me/search/songs?query=
 
 # Copy requirements.txt file to install the dependencies
 COPY requirements.txt requirements.txt
@@ -16,7 +17,7 @@ RUN pip install -r requirements.txt
 
 # Exposing the port such that we can run our code
 EXPOSE 5000
-
+EXPOSE 80
 # Let's copy everything into the WORKDIR
 COPY . .
 
