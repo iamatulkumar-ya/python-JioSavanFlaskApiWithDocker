@@ -1,5 +1,5 @@
 from http import HTTPStatus
- 
+import logging
 
 def createResponse(_isError=False,_message="", _data="", _statusCode=HTTPStatus.BAD_REQUEST):
     if(_isError): 
@@ -24,10 +24,14 @@ This method is ise to validatet the input json
 """
 def validateRequestJsonData(reqJsonData):
     reqDataDict = {k.lower(): items for k, items in reqJsonData.items()}
+    logging.warning("Inside validateRequestJsonData")
+
     if  'songname' in reqDataDict:
+       logging.warning("Input Json is having required key.")
        return True , reqDataDict.get('songname')
     
     else:
+       logging.warning("Input Json is not having required key.")
        return False , 'None'
     
 
@@ -37,11 +41,15 @@ Method is used to get the json input of response result and format it into requi
 """
 def getFormattedResponseResult(resDataDict):
 
+   logging.warning("Inside getFormattedResponseResult")
+
    searchedResultsList = []
    if(resDataDict["data"]["total"]==0):
-         print(resDataDict["data"]["total"])
+         logging.warning("No data in result")
+         #print(resDataDict["data"]["total"])
 
    else:
+         logging.warning("Result is having data, formatting all.")
          searchResult = resDataDict["data"]["results"]
 
          for i in range(len(searchResult)):
@@ -58,6 +66,6 @@ def getFormattedResponseResult(resDataDict):
                searchedResultsList.append(singleRecord)
 
          
-            
+   logging.warning("Returning from getFormattedResponseResult.")      
    return searchedResultsList
             

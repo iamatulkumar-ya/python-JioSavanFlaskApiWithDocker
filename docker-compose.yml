@@ -1,13 +1,22 @@
 version: "3.9"
 services:
+
+# creating the service for our application. Like below web service we can have multiple services.
   web:
 
     # Mentioning the . here, such that compose file will use the image which we mentioned in the docker file 
     build: .
-    image: iamatulkumar/python-jiosavanflaskapi:alpine3.18v1.1
+
+    # Mentioning the image name with tag which will be showing in the docker desktop
+    image: iamatulkumar/python-jiosavanflaskapi:alpine3.18v1.3
+
+    # Mentioning the container name for our image for easy identification while running it locally
     container_name: python-flaskapi-container
+
+    # binding the ports
     ports:
       - "8000:5000"
+
     # We are mounting the volume which we are using for our application
     volumes:
       - /D/CodeDesk/gh-iamatulkumar-ya/python-JioSavanFlaskApiWithDocker/:/var/app/

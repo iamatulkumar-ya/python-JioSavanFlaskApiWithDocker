@@ -5,7 +5,7 @@ FROM python:alpine3.18 as base
 WORKDIR /var/app
 
 # Setting env variable which will be used by flask 
-ENV FLASK_APP=app.py
+ENV FLASK_APP=./src/startup.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV JIO_SAVAN_SEARCH_SONG_URL=https://saavn.me/search/songs?query=
 
